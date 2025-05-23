@@ -165,3 +165,4 @@ C:\Progetti-TR\API Web\oratorio-backend\obj\Debug\net8.0\refint\oratorio-backend
 C:\Progetti-TR\API Web\oratorio-backend\obj\Debug\net8.0\oratorio-backend.pdb
 C:\Progetti-TR\API Web\oratorio-backend\obj\Debug\net8.0\oratorio-backend.genruntimeconfig.cache
 C:\Progetti-TR\API Web\oratorio-backend\obj\Debug\net8.0\ref\oratorio-backend.dll
+C:\Progetti-TR\API Web\oratorio-backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

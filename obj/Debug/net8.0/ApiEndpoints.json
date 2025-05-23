@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "oratorio_backend.Controllers.ContattoController",
+    "Method": "InviaMessaggio",
+    "RelativePath": "api/Contatto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "oratorio_backend.Models.ContattoRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
