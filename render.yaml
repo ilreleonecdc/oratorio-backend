@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: oratorio-backend-api
+    runtime: dotnet
+    repo: https://github.com/ilreleonecdc/oratorio-backend
+    branch: main
+    buildCommand: dotnet publish -c Release -o out
+    startCommand: dotnet out/oratorio-backend.dll
