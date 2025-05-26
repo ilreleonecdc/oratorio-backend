@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("oratorio-backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e500d3b49831a0287600d04c9d1943b67984f38")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ef0eb9044f95dcd692141a768e69956c3eec7bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("oratorio-backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("oratorio-backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

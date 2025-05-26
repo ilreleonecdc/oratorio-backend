@@ -24,7 +24,11 @@ namespace oratorio_backend.Controllers
         {
             var success = await _email.InviaEmaiLAsync(request);
             if (success)
-                return Ok(new { messaggio = "Email inviata con successo" });
+                return Ok(new
+                {
+                    messaggio = "Email inviata con successo",
+                    numeroPratica = request.NumeroPratica
+                });
 
             return StatusCode(500, new { errore = "Errore durante l'invio" });
         }

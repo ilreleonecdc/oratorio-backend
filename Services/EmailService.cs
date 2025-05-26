@@ -27,10 +27,15 @@ namespace oratorio_backend.Services
 
             var body = new
             {
-                sender = new { name = request.Nome, cognome = request.Cognome, email = request.Email },
+                sender = new { nome = request.Nome, cognome = request.Cognome, email = request.Email },
                 to = new[] { new { email = destinatario } },
-                subject = "Messaggi dal sito",
-                htmlContent = $"<p><b>Nome:</b> {request.Nome}</p><p><b>Email:</b> {request.Email}</p><p>{request.Messaggio}</p>"
+                subject = $"[{request.NumeroPratica}]: {request.OggettoRichiesta}",
+                htmlContent = $@"
+                                <p><b>Numero pratica:</b> {request.NumeroPratica}</p>
+                                <p><b>Nome:</b> {request.Nome}</p>
+                                <p><b>Email:</b> {request.Email}</p>
+                                <p><b>Oggetto:</b> {request.OggettoRichiesta}</p>
+                                <p>{request.Messaggio}</p>"
             };
 
             var req = new HttpRequestMessage(HttpMethod.Post, "https://api.brevo.com/v3/smtp/email")

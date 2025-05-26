@@ -1,0 +1,45 @@
+# =========================
+# BACKEND ASP.NET Core
+# =========================
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code
+.vscode/
+.idea/
+.vs/
+*.code-workspace
+
+# ASP.NET specific
+appsettings.*.json
+secrets.json
+
+# Logs
+*.log
+
+# Transient files
+*.tmp
+*.temp
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+
+# DotCover
+*.dotCover
+
+# Backup
+*.bak
+*.old
+
+# T4 outputs
+*.generated.cs
+
+# Database
+*.mdf
+*.ldf
