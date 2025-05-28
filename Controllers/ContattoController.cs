@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using oratorio_backend.Models;
 using oratorio_backend.Services;
 
@@ -23,6 +24,7 @@ namespace oratorio_backend.Controllers
         public async Task<IActionResult> InviaMessaggio([FromBody] ContattoRequest request)
         {
             var success = await _email.InviaEmaiLAsync(request);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
             if (success)
                 return Ok(new
                 {

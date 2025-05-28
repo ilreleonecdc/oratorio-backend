@@ -4,6 +4,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+// CORS (se ti serve per il dev su IP locale)
+builder.Services.AddCors(o => o.AddDefaultPolicy(p =>
+  p.WithOrigins("http://localhost:4200")  // o http://<IP>:4200
+    .AllowAnyHeader().AllowAnyMethod()));
+
 builder.Services.AddHttpClient<EmailService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
