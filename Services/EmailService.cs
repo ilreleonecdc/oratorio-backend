@@ -27,7 +27,7 @@ namespace oratorio_backend.Services
 
             var body = new
             {
-                sender = new { nome = request.Nome, cognome = request.Cognome, email = request.Email },
+                sender = new { nome = request.Nome, cognome = request.Cognome, email = mittente },
                 to = new[] { new { email = destinatario } },
                 subject = $"[{request.NumeroPratica}]: {request.OggettoRichiesta}",
                 htmlContent = $@"
