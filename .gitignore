@@ -43,3 +43,6 @@ packages/
 # Database
 *.mdf
 *.ldf
+
+# Configurazione locali con segreti
+appsettings.json
