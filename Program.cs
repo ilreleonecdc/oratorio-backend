@@ -6,8 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // CORS (se ti serve per il dev su IP locale)
 builder.Services.AddCors(o => o.AddDefaultPolicy(p =>
-  p.WithOrigins("http://localhost:4200")  // o http://<IP>:4200
-    .AllowAnyHeader().AllowAnyMethod()));
+  p.WithOrigins("http://localhost:4200", "http://192.168.1.97:4200")  // o http://<IP>:4200
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+  ));
 
 builder.Services.AddHttpClient<EmailService>();
 builder.Services.AddControllers();
