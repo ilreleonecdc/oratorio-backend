@@ -28,6 +28,8 @@ namespace oratorio_backend.Services
             var destinatario = _config["Brevo:Destinatario"];
             var mittenteName = "Assistenza Oratorio PerDiQua";
 
+            request.NumeroPratica = $"PR-{DateTime.UtcNow:yyyyMMdd}-{Guid.NewGuid().ToString().Substring(0, 4).ToUpper()}";
+
             var logoUrl = "https://oratorioperdiqua.it/assets/logo.png";
             var now = DateTime.Now.ToString("dd/MM/yyyy HH:mm", new CultureInfo("it-IT"));
             var html = $@"
