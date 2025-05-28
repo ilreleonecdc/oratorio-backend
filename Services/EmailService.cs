@@ -45,6 +45,8 @@ namespace oratorio_backend.Services
             };
 
             var res = await _http.SendAsync(req);
+            var content = await res.Content.ReadAsStringAsync();
+            Console.WriteLine($"[Brevo] Status: {(int)res.StatusCode} - Body: {content}");
             return res.IsSuccessStatusCode;
         }
     }

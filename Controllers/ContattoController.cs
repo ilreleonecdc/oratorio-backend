@@ -21,7 +21,7 @@ namespace oratorio_backend.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InviaMessaggio([FromBody] ContattoRequest request)
+        public async Task<IActionResult> InviaMessaggioAsync([FromBody] ContattoRequest request)
         {
             var success = await _email.InviaEmaiLAsync(request);
             if (!ModelState.IsValid) return BadRequest(ModelState);
