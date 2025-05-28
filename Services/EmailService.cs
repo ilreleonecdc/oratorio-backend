@@ -26,10 +26,10 @@ namespace oratorio_backend.Services
             var apiKey = _config["Brevo:ApiKey"];
             var mittente = _config["Brevo:Mittente"];
             var destinatario = _config["Brevo:Destinatario"];
-            var mittenteName = $"{request.Nome} {request.Cognome}";
+            var mittenteName = "Assistenza Oratorio PerDiQua";
 
             var logoUrl = "https://oratorioperdiqua.it/assets/logo.png";
-            var now = DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm", new CultureInfo("it-IT"));
+            var now = DateTime.Now.ToString("dd/MM/yyyy HH:mm", new CultureInfo("it-IT"));
             var html = $@"
             <table width=""100%"" cellpadding=""0"" cellspacing=""0"" style=""font-family:Verdana,sans-serif;background:#eef2f5;padding:20px"">
                 <tr><td align=""center"">
@@ -76,9 +76,15 @@ namespace oratorio_backend.Services
                 to = new[] {
                     new { email = destinatario }
                 },
-                replyTo = new { email = request.Email, name = mittenteName },
+                replyTo = new { email = request.Email, name = $"{request.Nome} {request.Cognome}" },
                 subject = $"[{request.NumeroPratica}]: {request.OggettoRichiesta}",
-                htmlContent = html
+                htmlContent = html,
+                header = new Dictionary<string, string>
+                {
+                    { "X-Priority", "1 (Highest)" },
+                    { "X-MSMail-Priority", "High" },
+                    { "Importance", "High" }
+                }
             };
 
             var req = new HttpRequestMessage(HttpMethod.Post, "https://api.brevo.com/v3/smtp/email")
