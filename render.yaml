@@ -1,7 +1,7 @@
 services:
   - type: web
-    name: oratorio-backend-api
-    runtime: dotnet
+    name: oratorio-backend
+    runtime: docker
     repo: https://github.com/ilreleonecdc/oratorio-backend
     branch: main
     buildCommand: dotnet publish -c Release -o out
