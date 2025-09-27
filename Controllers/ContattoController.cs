@@ -23,16 +23,21 @@ namespace oratorio_backend.Controllers
         [HttpPost]
         public async Task<IActionResult> InviaMessaggioAsync([FromBody] ContattoRequest request)
         {
-            var success = await _email.InviaEmaiLAsync(request);
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            if (success)
-                return Ok(new
-                {
-                    messaggio = "Email inviata con successo",
-                    numeroPratica = request.NumeroPratica
-                });
+            if (!ModelState.IsValid) return BadRequest(ModelState);   // ✅ prima di tutto
 
-            return StatusCode(500, new { errore = "Errore durante l'invio" });
+            try
+            {
+                var ok = await _email.InviaEmaiLAsync(request); // o InviaEmaiLAsync
+                if (ok)
+                    return Ok(new { messaggio = "Email inviata con successo", numeroPratica = request.NumeroPratica });
+
+                return StatusCode(502, new { errore = "Invio verso Brevo fallito" }); // 502 > upstream
+            }
+            catch (Exception ex)
+            {
+                // logga ex.Message/ex.StackTrace
+                return StatusCode(500, new { errore = "Errore interno", dettaglio = ex.Message });
+            }
         }
     }
 }

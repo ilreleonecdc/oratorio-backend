@@ -102,9 +102,9 @@ namespace oratorio_backend.Services
         }
         public async Task<bool> InviaEmailReLeoneAsync(ContattoRequest request)
         {
-            var apiKey = _config["Brevo:ApiKey"];
-            var mittente = _config["Brevo:MittenteLeone"];
-            var destinatario = _config["Brevo:Destinatario"]; // nuovo
+            var apiKey = _config["Brevo:ApiKey"] ?? throw new InvalidOperationException("Brevo:ApiKey mancante");
+            var mittente = _config["Brevo:MittenteLeone"] ?? throw new InvalidOperationException("Brevo:MittenteLeone mancante");
+            var destinatario = _config["Brevo:Destinatario"] ?? throw new InvalidOperationException("Brevo:Destinatario mancante"); // nuovo
             var mittenteName = "Re Leone CDC - Il Musical";
 
             request.NumeroPratica = $"RL-{DateTime.UtcNow:yyyyMMdd}-{Guid.NewGuid().ToString().Substring(0, 4).ToUpper()}";
@@ -186,7 +186,7 @@ namespace oratorio_backend.Services
 
             var res = await _http.SendAsync(req);
             var content = await res.Content.ReadAsStringAsync();
-            Console.WriteLine($"[Brevo] Status: {(int)res.StatusCode} - Body: {content}");
+            Console.WriteLine($"[Brevo - ReLeone] Status: {(int)res.StatusCode} {res.ReasonPhrase} - Body: {content}");
             return res.IsSuccessStatusCode;
         }
     }
