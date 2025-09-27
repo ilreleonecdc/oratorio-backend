@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // CORS (se ti serve per il dev su IP locale)
 builder.Services.AddCors(o => o.AddDefaultPolicy(p =>
-  p.WithOrigins("http://localhost:4200", "http://192.168.1.97:4200")  // o http://<IP>:4200
+  p.WithOrigins("http://localhost:4200", "http://192.168.1.97:4200", "https://oratorioperdiqua.it", "https://ilreleonecdc.it")  // o http://<IP>:4200
     .AllowAnyHeader()
     .AllowAnyMethod()
   ));
@@ -23,8 +23,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
