@@ -10,7 +10,7 @@ using oratorio_backend.Services;
 namespace oratorio_backend.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/releone/contatto")]
     public class ReLeoneContattoController : ControllerBase
     {
         private readonly EmailService _email;
