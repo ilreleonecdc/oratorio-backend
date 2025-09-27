@@ -109,7 +109,6 @@ namespace oratorio_backend.Services
 
             request.NumeroPratica = $"RL-{DateTime.UtcNow:yyyyMMdd}-{Guid.NewGuid().ToString().Substring(0, 4).ToUpper()}";
 
-            var logoUrl = "https://ilreleonecdc.it/assets/images/loghi/LOGO_Rafiki.png";
             var now = DateTime.Now.ToString("dd/MM/yyyy HH:mm", new CultureInfo("it-IT"));
             var html = $@"
                             <!DOCTYPE html>
@@ -126,7 +125,7 @@ namespace oratorio_backend.Services
                                     <table role=""presentation"" width=""600"" cellpadding=""0"" cellspacing=""0"" style=""width:600px; max-width:100%; background:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 6px 24px rgba(0,0,0,.08);"">
                                     <tr>
                                         <td style=""background:#2f408c; padding:18px 20px; text-align:center;"">
-                                        <img src=""https://ilreleonecdc.it/assets/icons/icon-192.png"" alt=""Il Re Leone CDC"" width=""72"" height=""72"" style=""display:inline-block;border-radius:50%; border:3px solid #face06;"">
+                                        <img src=""https://ilreleonecdc.it/assets/images/loghi/LOGO_Rafiki.png"" alt=""Il Re Leone CDC"" width=""72"" height=""72"" style=""display:inline-block;border-radius:50%; border:3px solid #face06;"">
                                         <div style=""font-family:Verdana,Arial,sans-serif; color:#ffffff; font-size:18px; font-weight:bold; margin-top:8px;"">
                                             IL RE LEONE CDC · <span style=""color:#face06;"">IL MUSICAL</span>
                                         </div>
